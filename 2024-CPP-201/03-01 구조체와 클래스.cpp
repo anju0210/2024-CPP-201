@@ -7,15 +7,16 @@ class Student {
 public:
 	// 생성자 : 객체를 생성할 때 호출되는 함수
 	// 반환형이 없다
-	Student(int hakbun, string name) {
-		hakbun_ = hakbun;
-		name_ = name;
+	Student(int hakbun, string name)
+		: hakbun_(hakbun), name_(name)
+	{
+		cout << "학번이 등록되었습니다." << endl;
 	}
 
 	// 생성자 오버로딩
-	Student() {
-		hakbun_ = 2121;
-		name_ = "JWP";
+	Student() 
+		: hakbun_(2121), name_("JWP")
+	{
 	}
 
 	//객체의 멤버를 출력하는 함수
