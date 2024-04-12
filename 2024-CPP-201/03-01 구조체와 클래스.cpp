@@ -8,9 +8,10 @@ public:
 	// 생성자 : 객체를 생성할 때 호출되는 함수
 	// 반환형이 없다
 	Student(int hakbun, string name)
-		: hakbun_(hakbun), name_(name)
+		:  name_(name)
 	{
-		cout << "학번이 등록되었습니다." << endl;
+		// this : 객체 자기자신을 가리키는 포인터
+		this->hakbun_ = hakbun;
 	}
 
 	// 생성자 오버로딩
