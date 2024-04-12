@@ -14,8 +14,13 @@ public:
 
 	// 생성자 오버로딩
 	Student() {
-		hakbun_ = 21;
+		hakbun_ = 2121;
 		name_ = "JWP";
+	}
+
+	//객체의 멤버를 출력하는 함수
+	void print() {
+		cout << hakbun_ << " " << name_ << endl;
 	}
 
 private :
@@ -29,5 +34,7 @@ void main(void) {
 	// Student juyoung = Student();
 	Student juyoung = Student(2115, "윤주영");
 	Student jwp = Student();
+	juyoung.print();
+	jwp.print();
 
 }
