@@ -33,9 +33,16 @@ private :
 void main(void) {
 	// 매개변수가 없는 생성자를 호출
 	// Student juyoung = Student();
-	Student juyoung = Student(2115, "윤주영");
+
+	//동적할당 : heap 영역에 할당. 실행시간(run time)에 메모리 크기 결정
+	Student* juyoung = new Student(2115, "윤주영");
+	//정적할당 : stack 영영에 할당. 컴파일 시간에 메모리 크기 결정
 	Student jwp = Student();
-	juyoung.print();
+	(*juyoung).print();
 	jwp.print();
+
+	// 동적할달된 메모리 해제(필수)
+	// 정적할당된 메모리는 중괄호가 끝나면 사라지지만 동적할당된 메모리는 남아있기 때문
+	delete juyoung;
 
 }
