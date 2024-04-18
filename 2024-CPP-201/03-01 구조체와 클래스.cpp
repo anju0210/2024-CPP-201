@@ -10,7 +10,7 @@ public:
 	Student(int hakbun, string name)
 		:  name_(name)
 	{
-		// this : 객체 자기자신을 가리키는 포인터
+		// this :  객체 자기자신을 가리키는 포인터
 		this->hakbun_ = hakbun;
 	}
 
