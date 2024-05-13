@@ -8,18 +8,21 @@ public:
 	Student(int hakbun, char* name)
 	{
 		this->hakbun_ = hakbun;
-		name_ = new char[18];	// 동적할당
+		name_ = new char[strlen(name) + 1];	// 동적할당, 널문자 공간을 위해 +1
 		strcpy(name_, name);	// 동적할당된 위치에 "윤주영"(name)을 복사한다
 		cout << "생성자 호출 완료" << endl;
 	}
 
 	Student() { }
 	
-	// TODO : 얕은보가로 인해 같은 주소의 공간을 두 번 삭제 시도
+	
 	Student(const Student& rhs)
-		: hakbun_(rhs.hakbun_), name_(rhs.name_)
+		: hakbun_(rhs.hakbun_)
 	{
 		cout << "복사생성자 호출" << endl;
+		name_ = new char[strlen(rhs.name_)+1];	// 동적할당
+		strcpy(name_, rhs.name_);	// 동적할당된 위치에 "윤주영"(name)을 복사한다
+		cout << "생성자 호출 완료" << endl;
 	}
 
 
