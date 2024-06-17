@@ -27,5 +27,11 @@
     <ClCompile Include="05-01 상속 기본.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="05-00 상속 테스트.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SFML 기본.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
