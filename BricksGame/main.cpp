@@ -4,8 +4,8 @@
 // Ball 클래스 정의
 class Ball {
 public:
-    sf::CircleShape shape;
-    sf::Vector2f velocity;
+    sf::CircleShape shape;  // 공의 외형
+    sf::Vector2f velocity;  // 공의 속도
 
     Ball(float mX, float mY) {
         shape.setPosition(mX, mY);
@@ -16,13 +16,18 @@ public:
     }
 
     void update() {
+        //공을 움직이게 함
         shape.move(velocity);
 
-        if (left() < 0) velocity.x = 8.f;
-        else if (right() > 800) velocity.x = -8.f;
+        if (left() < 0)
+            velocity.x = 8.f;
+        else if (right() > 800)
+            velocity.x = -8.f;
 
-        if (top() < 0) velocity.y = 8.f;
-        else if (bottom() > 600) velocity.y = -8.f;
+        if (top() < 0)
+            velocity.y = 8.f;
+        else if (bottom() > 600)
+            velocity.y = -8.f;
     }
 
     float left() { return shape.getPosition().x - shape.getRadius(); }
@@ -47,6 +52,8 @@ public:
     }
 
     void update() {
+
+        // 왼쪽 화살표 키를 누르고 && 왼쪽 벽에 안 닿았을 때
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && left() > 0) {
             shape.move(-paddleVelocity, 0.f);
         }
@@ -67,11 +74,22 @@ public:
     sf::RectangleShape shape;
     bool destroyed = false;
 
+    Brick() {
+        shape.setSize({ 60.f, 20.f });
+        shape.setFillColor(sf::Color::Yellow);
+        shape.setOrigin(30.f, 10.f);
+        
+    }
+
     Brick(float mX, float mY) {
         shape.setPosition(mX, mY);
         shape.setSize({ 60.f, 20.f });
         shape.setFillColor(sf::Color::Yellow);
         shape.setOrigin(30.f, 10.f);
+    }
+
+    void setPosition(float mX, float mY) {
+        shape.setPosition(mX, mY);
     }
 };
 
@@ -84,15 +102,15 @@ const float brickHeight = 20.f;
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Brick Breaker");
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(60);   // 1초에 60 프레임으로 제한
 
     Ball ball(windowWidth / 2, windowHeight / 2);
     Paddle paddle(windowWidth / 2, windowHeight - 50);
 
-    std::vector<Brick> bricks;
+    Brick bricks[brickRows][brickColumns];
     for (int i = 0; i < brickRows; ++i) {
         for (int j = 0; j < brickColumns; ++j) {
-            bricks.emplace_back((j + 1) * (brickWidth + 10), (i + 1) * (brickHeight + 10));
+            bricks[i][j].setPosition((j + 1) * (brickWidth + 10), (i + 1) * (brickHeight + 10));
         }
     }
 
@@ -108,22 +126,29 @@ int main() {
 
         if (ball.shape.getGlobalBounds().intersects(paddle.shape.getGlobalBounds())) {
             ball.velocity.y = -ball.velocity.y;
+            // 공과 패들의 충돌처리
         }
 
-        for (auto& brick : bricks) {
-            if (brick.destroyed) continue;
-            if (ball.shape.getGlobalBounds().intersects(brick.shape.getGlobalBounds())) {
-                ball.velocity.y = -ball.velocity.y;
-                brick.destroyed = true;
+        for (int i = 0; i < brickRows; i++) {
+            for (int j = 0; j < brickColumns; j++) {
+
+                if (bricks[i][j].destroyed) continue;
+                if (ball.shape.getGlobalBounds().intersects(bricks[i][j].shape.getGlobalBounds())) {
+                    ball.velocity.y = -ball.velocity.y;
+                    bricks[i][j].destroyed = true;
+                }
             }
         }
 
         window.clear();
         window.draw(ball.shape);
         window.draw(paddle.shape);
-        for (auto& brick : bricks) {
-            if (!brick.destroyed)
-                window.draw(brick.shape);
+
+        for (int i = 0; i < brickRows; i++) {
+            for (int j = 0; j < brickColumns; j++) {
+                if (!bricks[i][j].destroyed)
+                    window.draw(bricks[i][j].shape);
+            }
         }
         window.display();
     }
