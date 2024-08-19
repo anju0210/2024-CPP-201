@@ -29,13 +29,37 @@ private:
 
 class Human : public Animal {
 public:
+	Human(string name, unsigned int age, bool right)
+		: Animal(name, age), right(right)
+	{
+		cout << "인권존재여부" << right << endl;
+	}
 
+	// TODO : 정적 바인딩을 동적바인딩으로 고치기
+	void bark() {
+		cout << "톡톡" << endl;
+	}
+
+	void sleep() {
+		cout << "쿨쿨" << endl;
+	}
+
+	void eat() {
+		cout << "냠냠" << endl;
+	}
 private:
 	bool right;
 };
 
 void main(void) {
 	Animal* ani = new Animal("정민", 18);
+	ani->bark();
+	ani->sleep();
+	ani->eat();
+
+	// ani의 자료형은 Animal*
+	ani = new Human("지혜", 18, true);
+	// 정적 바인딩으로 인해 Animal의 멤버함수가 호출된다
 	ani->bark();
 	ani->sleep();
 	ani->eat();
