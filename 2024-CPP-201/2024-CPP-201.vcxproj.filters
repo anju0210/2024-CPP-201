@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="03-02 소멸자.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="03-03 복사생성자.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="건우쌤01.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="05-01 상속 기본.cpp">
@@ -30,10 +24,7 @@
     <ClCompile Include="05-00 상속 테스트.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SFML 기본.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="05-02 다형성.cpp">
+    <ClCompile Include="07-01 템플릿.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
