@@ -15,7 +15,11 @@ public:
 		cout << "만드는 시간 : " << making_time_ << endl;
 		cout << "아름다움 : " << beauty_ << endl;
 	}
-private:
+
+	// 자식 클래스에서 구현하겠다
+	virtual void attack(Clothes* target) = 0;
+
+
 	string name_;
 	int price_;
 	int making_time_;
@@ -33,6 +37,12 @@ public:
 		cout << "노리개 : " << norigae_ << endl;
 		cout << "저고리 : " << jugori_ << endl;
 	}
+
+	void attack(Clothes* target) {
+		target->beauty_ -= beauty_;
+	}
+
+
 private:
 	int norigae_;	//자수
 	int jugori_;	//노리개
@@ -48,6 +58,11 @@ public:
 		Clothes::show();
 		cout << "오비 : " << belt_ << endl;
 	}
+
+	void attack(Clothes* target) {
+		target->beauty_ -= beauty_;
+	}
+
 private:
 	int belt_;
 };
@@ -62,6 +77,11 @@ public:
 		Clothes::show();
 		cout << "자수 : " << embroidery_ << endl;
 	}
+
+	void attack(Clothes* target) {
+		target->beauty_ -= beauty_;
+	}
+
 private:
 	int embroidery_;
 };
@@ -72,6 +92,14 @@ void main(void) {
 
 	player->show();
 	chingu->show();
+
+	cout << "---------------------------------" << endl;
+	cout << "1. 공격" << endl;
+	cout << "2. 특수공격1" << endl;
+	cout << "3. 특수공격2" << endl;
+	cout << "4. 도망" << endl;
+
+	player->attack(chingu);
 
 	delete chingu;
 	delete player;
