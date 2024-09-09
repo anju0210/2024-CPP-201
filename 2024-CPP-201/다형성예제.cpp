@@ -31,7 +31,9 @@ class Hanbok : public Clothes {
 public:
 	Hanbok(string name, int price, int making_time, int beauty, int norigae, int jugori)
 		: jugori_(jugori), norigae_(norigae), Clothes(name, price, making_time, beauty)
-	{}
+	{
+		attack_cnt_ = 0;
+	}
 
 	void show(){
 		Clothes::show();
@@ -39,12 +41,18 @@ public:
 		cout << "저고리 : " << jugori_ << endl;
 	}
 
-	void attack(Clothes* target) {
+	void attack(Clothes* target) override { 
 		target->beauty_ -= beauty_;
+		attack_cnt_++;
+		if (attack_cnt_ == 3) {
+			target->beauty_ -= beauty_;
+			attack_cnt_ = 0;
+		}
 	}
 
 
 private:
+	int attack_cnt_;
 	int norigae_;	//자수
 	int jugori_;	//노리개
 };
@@ -60,7 +68,7 @@ public:
 		cout << "오비 : " << belt_ << endl;
 	}
 
-	void attack(Clothes* target) {
+	void attack(Clothes* target) override {
 		target->beauty_ -= beauty_;
 	}
 
@@ -79,7 +87,7 @@ public:
 		cout << "자수 : " << embroidery_ << endl;
 	}
 
-	void attack(Clothes* target) {
+	void attack(Clothes* target) override {
 		target->beauty_ -= beauty_;
 	}
 
