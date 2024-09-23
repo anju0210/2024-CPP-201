@@ -7,6 +7,9 @@ using namespace std;
 void main(void) {
 	vector<string> cy;
 	
+	// 미리 벡터의 크기를 지정하는 것이 좋다
+	cy.reserve(100);
+
 	// 요소 추가
 	cy.push_back("채연");
 	cy.push_back("해인");
@@ -28,8 +31,10 @@ void main(void) {
 
 	// 마지막 요소 삭제
 	cy.pop_back();
+
+	vector<string>::iterator iter;
 	cout << "★★★ " << cy[0] << "의 남자들 ★★★" << endl;
-	for (int i = 1; i < cy.size(); i++)
-		cout << cy[i] << endl;
+	for (iter = cy.begin(); iter != cy.end(); iter++)
+		cout << *iter << endl;
 
 }
