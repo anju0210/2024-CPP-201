@@ -9,7 +9,7 @@ enum FoodStyle {
 };
 
 int main(void) {
-    int style = FoodStyle::KOREAN;  // enum 값을 사용하여 초기화
+    FoodStyle style = FoodStyle::KOREAN;  // enum 값을 사용하여 초기화
 
     switch (style) {
     case FoodStyle::KOREAN:
