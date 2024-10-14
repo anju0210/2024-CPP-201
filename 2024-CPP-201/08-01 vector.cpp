@@ -32,9 +32,9 @@ void main(void) {
 	// 마지막 요소 삭제
 	cy.pop_back();
 
-	vector<string>::iterator iter;
+	//vector<string>::iterator iter;
 	cout << "★★★ " << cy[0] << "의 남자들 ★★★" << endl;
-	for (iter = cy.begin(); iter != cy.end(); iter++)
+	for (auto iter = cy.begin(); iter != cy.end(); iter++)
 		cout << *iter << endl;
 
 }
