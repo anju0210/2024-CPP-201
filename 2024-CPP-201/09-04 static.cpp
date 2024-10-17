@@ -11,6 +11,7 @@ private:
 public:
 	PrettyJ(int gam, string name) :gam_(gam), name_(name)
 	{
+		// gam_++;	// static  멤버함수에는 일반 멤버변수가 들어갈 수 없다.
 		num_++;
 	}
 	static int* get_address_num(void) { return &num_; }
