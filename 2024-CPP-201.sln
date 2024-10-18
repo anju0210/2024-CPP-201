@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2024-CPP-201", "2024-CPP-20
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BricksGame", "BricksGame\BricksGame.vcxproj", "{7B04A2E4-BFC2-4E2C-92D9-498D1730C156}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project", "Project\Project.vcxproj", "{889DF630-5316-49FE-B28D-F33B5350C849}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{7B04A2E4-BFC2-4E2C-92D9-498D1730C156}.Release|x64.Build.0 = Release|x64
 		{7B04A2E4-BFC2-4E2C-92D9-498D1730C156}.Release|x86.ActiveCfg = Release|Win32
 		{7B04A2E4-BFC2-4E2C-92D9-498D1730C156}.Release|x86.Build.0 = Release|Win32
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Debug|x64.ActiveCfg = Debug|x64
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Debug|x64.Build.0 = Debug|x64
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Debug|x86.ActiveCfg = Debug|Win32
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Debug|x86.Build.0 = Debug|Win32
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Release|x64.ActiveCfg = Release|x64
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Release|x64.Build.0 = Release|x64
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Release|x86.ActiveCfg = Release|Win32
+		{889DF630-5316-49FE-B28D-F33B5350C849}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
